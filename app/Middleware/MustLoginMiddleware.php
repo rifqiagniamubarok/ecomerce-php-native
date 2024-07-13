@@ -1,12 +1,12 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Middleware;
+namespace Bobakuy\Middleware;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\App\View;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\SessionRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Service\SessionService;
+use Bobakuy\App\View;
+use Bobakuy\Config\Database;
+use Bobakuy\Repository\SessionRepository;
+use Bobakuy\Repository\UserRepository;
+use Bobakuy\Service\SessionService;
 
 class MustLoginMiddleware implements Middleware
 {

@@ -1,19 +1,19 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Service;
+namespace Bobakuy\Service;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\User;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Exception\ValidationException;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserLoginRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserLoginResponse;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserPasswordUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserPasswordUpdateResponse;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserProfileUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserProfileUpdateResponse;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserRegisterRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserRegisterResponse;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
+use Bobakuy\Config\Database;
+use Bobakuy\Domain\User;
+use Bobakuy\Exception\ValidationException;
+use Bobakuy\Model\UserLoginRequest;
+use Bobakuy\Model\UserLoginResponse;
+use Bobakuy\Model\UserPasswordUpdateRequest;
+use Bobakuy\Model\UserPasswordUpdateResponse;
+use Bobakuy\Model\UserProfileUpdateRequest;
+use Bobakuy\Model\UserProfileUpdateResponse;
+use Bobakuy\Model\UserRegisterRequest;
+use Bobakuy\Model\UserRegisterResponse;
+use Bobakuy\Repository\UserRepository;
 
 class UserService
 {
@@ -55,8 +55,10 @@ class UserService
 
     private function validateUserRegistrationRequest(UserRegisterRequest $request)
     {
-        if ($request->id == null || $request->name == null || $request->password == null ||
-            trim($request->id) == "" || trim($request->name) == "" || trim($request->password) == "") {
+        if (
+            $request->id == null || $request->name == null || $request->password == null ||
+            trim($request->id) == "" || trim($request->name) == "" || trim($request->password) == ""
+        ) {
             throw new ValidationException("Id, Name, Password can not blank");
         }
     }
@@ -81,8 +83,10 @@ class UserService
 
     private function validateUserLoginRequest(UserLoginRequest $request)
     {
-        if ($request->id == null || $request->password == null ||
-            trim($request->id) == "" || trim($request->password) == "") {
+        if (
+            $request->id == null || $request->password == null ||
+            trim($request->id) == "" || trim($request->password) == ""
+        ) {
             throw new ValidationException("Id, Password can not blank");
         }
     }
@@ -115,8 +119,10 @@ class UserService
 
     private function validateUserProfileUpdateRequest(UserProfileUpdateRequest $request)
     {
-        if ($request->id == null || $request->name == null ||
-            trim($request->id) == "" || trim($request->name) == "") {
+        if (
+            $request->id == null || $request->name == null ||
+            trim($request->id) == "" || trim($request->name) == ""
+        ) {
             throw new ValidationException("Id, Name can not blank");
         }
     }
@@ -153,8 +159,10 @@ class UserService
 
     private function validateUserPasswordUpdateRequest(UserPasswordUpdateRequest $request)
     {
-        if ($request->id == null || $request->oldPassword == null || $request->newPassword == null ||
-            trim($request->id) == "" || trim($request->oldPassword) == "" || trim($request->newPassword) == "") {
+        if (
+            $request->id == null || $request->oldPassword == null || $request->newPassword == null ||
+            trim($request->id) == "" || trim($request->oldPassword) == "" || trim($request->newPassword) == ""
+        ) {
             throw new ValidationException("Id, Old Password, New Password can not blank");
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Model;
+namespace Bobakuy\Model;
 
 class UserProfileUpdateRequest
 {

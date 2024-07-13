@@ -1,18 +1,18 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Controller;
+namespace Bobakuy\Controller;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\App\View;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Exception\ValidationException;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserLoginRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserPasswordUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserProfileUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserRegisterRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\SessionRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Service\SessionService;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Service\UserService;
+use Bobakuy\App\View;
+use Bobakuy\Config\Database;
+use Bobakuy\Exception\ValidationException;
+use Bobakuy\Model\UserLoginRequest;
+use Bobakuy\Model\UserPasswordUpdateRequest;
+use Bobakuy\Model\UserProfileUpdateRequest;
+use Bobakuy\Model\UserRegisterRequest;
+use Bobakuy\Repository\SessionRepository;
+use Bobakuy\Repository\UserRepository;
+use Bobakuy\Service\SessionService;
+use Bobakuy\Service\UserService;
 
 class UserController
 {

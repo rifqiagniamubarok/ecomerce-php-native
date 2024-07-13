@@ -1,8 +1,7 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Exception;
+namespace Bobakuy\Exception;
 
 class ValidationException extends \Exception
 {
-
 }

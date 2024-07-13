@@ -1,8 +1,8 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Repository;
+namespace Bobakuy\Repository;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\Session;
+use Bobakuy\Domain\Session;
 
 class SessionRepository
 {
@@ -26,12 +26,12 @@ class SessionRepository
         $statement->execute([$id]);
 
         try {
-            if($row = $statement->fetch()){
+            if ($row = $statement->fetch()) {
                 $session = new Session();
                 $session->id = $row['id'];
                 $session->userId = $row['user_id'];
                 return $session;
-            }else{
+            } else {
                 return null;
             }
         } finally {
@@ -49,5 +49,4 @@ class SessionRepository
     {
         $this->connection->exec("DELETE FROM sessions");
     }
-
 }

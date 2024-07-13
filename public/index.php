@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\App\Router;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Controller\HomeController;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Controller\UserController;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Middleware\MustNotLoginMiddleware;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Middleware\MustLoginMiddleware;
+use Bobakuy\App\Router;
+use Bobakuy\Config\Database;
+use Bobakuy\Controller\HomeController;
+use Bobakuy\Controller\UserController;
+use Bobakuy\Middleware\MustNotLoginMiddleware;
+use Bobakuy\Middleware\MustLoginMiddleware;
 
 Database::getConnection('prod');
 

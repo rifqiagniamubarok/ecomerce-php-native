@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Domain;
+namespace Bobakuy\Domain;
 
 class Session
 {

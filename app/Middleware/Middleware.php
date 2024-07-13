@@ -1,10 +1,9 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Middleware;
+namespace Bobakuy\Middleware;
 
 interface Middleware
 {
 
     function before(): void;
-
 }

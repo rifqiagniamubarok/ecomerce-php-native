@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\App;
+namespace Bobakuy\App;
 
 class View
 {
@@ -19,5 +19,4 @@ class View
             exit();
         }
     }
-
 }

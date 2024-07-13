@@ -1,8 +1,8 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Repository;
+namespace Bobakuy\Repository;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\User;
+use Bobakuy\Domain\User;
 
 class UserRepository
 {

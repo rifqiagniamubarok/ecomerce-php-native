@@ -1,11 +1,11 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Service;
+namespace Bobakuy\Service;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\Session;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\User;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\SessionRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
+use Bobakuy\Domain\Session;
+use Bobakuy\Domain\User;
+use Bobakuy\Repository\SessionRepository;
+use Bobakuy\Repository\UserRepository;
 
 class SessionService
 {
@@ -47,11 +47,10 @@ class SessionService
         $sessionId = $_COOKIE[self::$COOKIE_NAME] ?? '';
 
         $session = $this->sessionRepository->findById($sessionId);
-        if($session == null){
+        if ($session == null) {
             return null;
         }
 
         return $this->userRepository->findById($session->userId);
     }
-
 }
