@@ -4,6 +4,6 @@ namespace Bobakuy\Model;
 
 class UserProfileUpdateRequest
 {
-    public ?string $id = null;
+    public ?string $username = null;
     public ?string $name = null;
 }

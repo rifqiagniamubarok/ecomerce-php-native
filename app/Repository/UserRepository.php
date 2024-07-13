@@ -15,9 +15,9 @@ class UserRepository
 
     public function save(User $user): User
     {
-        $statement = $this->connection->prepare("INSERT INTO users(id, name, password) VALUES (?, ?, ?)");
+        $statement = $this->connection->prepare("INSERT INTO users(username, password) VALUES (?, ?)");
         $statement->execute([
-            $user->id, $user->name, $user->password
+            $user->username, $user->password
         ]);
         return $user;
     }
@@ -26,21 +26,20 @@ class UserRepository
     {
         $statement = $this->connection->prepare("UPDATE users SET name = ?, password = ? WHERE id = ?");
         $statement->execute([
-            $user->name, $user->password, $user->id
+            $user->username, $user->password, $user->id
         ]);
         return $user;
     }
 
-    public function findById(string $id): ?User
+    public function findByUsername(string $username): ?User
     {
-        $statement = $this->connection->prepare("SELECT id, name, password FROM users WHERE id = ?");
-        $statement->execute([$id]);
+        $statement = $this->connection->prepare("SELECT id, username, password FROM users WHERE username = ?");
+        $statement->execute([$username]);
 
         try {
             if ($row = $statement->fetch()) {
                 $user = new User();
-                $user->id = $row['id'];
-                $user->name = $row['name'];
+                $user->username = $row['username'];
                 $user->password = $row['password'];
                 return $user;
             } else {
