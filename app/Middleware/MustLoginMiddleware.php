@@ -25,5 +25,8 @@ class MustLoginMiddleware implements Middleware
         if ($user == null) {
             View::redirect('/admin/login');
         }
+        if ($user->role != 'admin') {
+            View::redirect('/admin/login');
+        }
     }
 }

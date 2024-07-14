@@ -47,3 +47,13 @@ Options All -Indexes
 # Disable server signature start
 	ServerSignature Off
 # Disable server signature end
+
+Options +FollowSymLinks
+RewriteEngine On
+
+# Jika file atau direktori benar-benar ada, lewati aturan berikut
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite untuk mengizinkan akses ke direktori 'images'
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

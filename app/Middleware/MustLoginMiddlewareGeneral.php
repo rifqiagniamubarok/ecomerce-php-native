@@ -8,7 +8,7 @@ use Bobakuy\Repository\SessionRepository;
 use Bobakuy\Repository\UserRepository;
 use Bobakuy\Service\SessionService;
 
-class MustNotLoginMiddleware implements Middleware
+class MustLoginMiddlewareGeneral implements Middleware
 {
     private SessionService $sessionService;
 
@@ -22,8 +22,8 @@ class MustNotLoginMiddleware implements Middleware
     function before(): void
     {
         $user = $this->sessionService->current();
-        if ($user != null) {
-            View::redirect('/admin/beranda');
+        if ($user == null) {
+            View::redirect('/admin/login');
         }
     }
 }

@@ -27,40 +27,34 @@
     </ul>
 </nav>
 <div class="container mx-auto mt-4">
-    <!-- <a href="/beranda">
-        <button type="button" class="cursor-pointer whitespace-nowrap bg-transparent rounded-xl border border-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-blue-700 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-blue-600 dark:text-blue-600 dark:focus-visible:outline-blue-600">
-            Back
-        </button>
-    </a> -->
-    <a href="/menu/baru">
+
+    <a href="/admin/menu/buat">
         <button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">
-            Create new menu
+            Buat menu baru
         </button>
     </a>
 </div>
 <div class="container mx-auto mt-4">
     <div class="grid grid-cols-5 gap-2">
-        <article class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-            <div class="h-44 md:h-64 overflow-hidden">
-                <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-black dark:text-white" aria-describedby="tripDescription">Menu name</h3>
-                <p id="tripDescription" class="text-pretty text-sm mb-2">
-                    @ Rp. 5000
-                </p>
-            </div>
-        </article>
-        <article class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-            <div class="h-44 md:h-64 overflow-hidden">
-                <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-black dark:text-white" aria-describedby="tripDescription">Menu name</h3>
-                <p id="tripDescription" class="text-pretty text-sm mb-2">
-                    @ Rp. 5000
-                </p>
-            </div>
-        </article>
+        <?php if (isset($model['dataMenu']) && is_array($model['dataMenu'])) : ?>
+            <?php foreach ($model['dataMenu'] as $menu) : ?>
+                <?php if (is_array($menu)) : ?>
+                    <article class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                        <div class="h-44 md:h-64 overflow-hidden">
+                            <img src="<?= htmlspecialchars($menu['gambar']) ?>" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="<?= htmlspecialchars($menu['nama']) ?>" />
+                        </div>
+                        <div class="flex flex-col gap-4 p-6">
+                            <h3 class="text-balance text-xl lg:text-2xl font-bold text-black dark:text-white" aria-describedby="tripDescription"><?= htmlspecialchars($menu['nama']) ?></h3>
+                            <p id="tripDescription" class="text-pretty text-sm mb-2">
+                                @ Rp. <?= number_format($menu['harga'], 0, ',', '.') ?>
+                            </p>
+                        </div>
+                    </article>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p>Data menu tidak ditemukan.</p>
+        <?php endif; ?>
+
     </div>
 </div>

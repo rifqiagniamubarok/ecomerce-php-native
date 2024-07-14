@@ -32,15 +32,14 @@ class UserService
             Database::beginTransaction();
             $user = $this->userRepository->findByUsername($request->username);
             if ($user != null) {
-                throw new ValidationException("User Id already exists");
+                throw new ValidationException("username telah digunakan");
             }
 
-            print_r($request);
 
             $user = new User();
             $user->username = $request->username;
             $user->password = password_hash($request->password, PASSWORD_BCRYPT);
-
+            $user->role = $request->role;
             $this->userRepository->save($user);
 
             $response = new UserRegisterResponse();

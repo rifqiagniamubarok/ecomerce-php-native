@@ -15,9 +15,18 @@ class UserRepository
 
     public function save(User $user): User
     {
-        $statement = $this->connection->prepare("INSERT INTO users(username, password) VALUES (?, ?)");
+        $statement = $this->connection->prepare("INSERT INTO users(username, password, role) VALUES (?, ?, ?)");
         $statement->execute([
-            $user->username, $user->password
+            $user->username, $user->password, $user->role
+        ]);
+        return $user;
+    }
+
+    public function saveUser(User $user): User
+    {
+        $statement = $this->connection->prepare("INSERT INTO users(username, password, role) VALUES (?, ?)");
+        $statement->execute([
+            $user->username, $user->password, 'user'
         ]);
         return $user;
     }
@@ -33,7 +42,7 @@ class UserRepository
 
     public function findByUsername(string $username): ?User
     {
-        $statement = $this->connection->prepare("SELECT id, username, password FROM users WHERE username = ?");
+        $statement = $this->connection->prepare("SELECT id, username, password, role FROM users WHERE username = ?");
         $statement->execute([$username]);
 
         try {
@@ -42,6 +51,7 @@ class UserRepository
                 $user->id = $row['id'];
                 $user->username = $row['username'];
                 $user->password = $row['password'];
+                $user->role = $row['role'];
                 return $user;
             } else {
                 return null;
@@ -52,7 +62,7 @@ class UserRepository
     }
     public function findById(string $id): ?User
     {
-        $statement = $this->connection->prepare("SELECT id, username, password FROM users WHERE id = ?");
+        $statement = $this->connection->prepare("SELECT id, username, password, role FROM users WHERE id = ?");
         $statement->execute([$id]);
 
         try {
@@ -60,6 +70,7 @@ class UserRepository
                 $user = new User();
                 $user->id = $row['id'];
                 $user->username = $row['username'];
+                $user->role = $row['role'];
                 $user->password = $row['password'];
                 return $user;
             } else {

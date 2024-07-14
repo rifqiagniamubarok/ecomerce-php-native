@@ -5,8 +5,8 @@
     <div class="w-screen h-screen flex justify-center items-center">
         <div class="border border-blue-600 p-4 rounded-md">
             <div>
-                <form class="space-y-4" method="post" action="/admin/login">
-                    <p class="text-xl font-semibold">Masuk sebagai admin</p>
+                <form class="space-y-4" method="post" action="/login">
+                    <p class="text-xl font-semibold">Masuk ke Bobakuy</p>
                     <?php if (isset($model['error'])) { ?>
                         <div class="">
                             <div class="relative w-full overflow-hidden rounded-xl border border-red-600 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300" role="alert">

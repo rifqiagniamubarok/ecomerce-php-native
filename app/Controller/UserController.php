@@ -32,19 +32,19 @@ class UserController
     public function register()
     {
         View::render('User/register', [
-            'title' => 'Register new User'
+            'title' => 'Register new admin'
         ]);
     }
-
     public function postRegister()
     {
         $request = new UserRegisterRequest();
         $request->username = $_POST['username'];
         $request->password = $_POST['password'];
+        $request->role = 'admin';
 
         try {
             $this->userService->register($request);
-            View::redirect('/users/login');
+            View::redirect('/admin/login');
         } catch (ValidationException $exception) {
             View::render('User/register', [
                 'title' => 'Register new User',
@@ -52,14 +52,35 @@ class UserController
             ]);
         }
     }
+    public function registerUser()
+    {
+        View::render('User/registerUser', [
+            'title' => 'Register new User'
+        ]);
+    }
+    public function postRegisterUser()
+    {
+        $request = new UserRegisterRequest();
+        $request->username = $_POST['username'];
+        $request->password = $_POST['password'];
+        $request->role = 'user';
 
+        try {
+            $this->userService->register($request);
+            View::redirect('/login');
+        } catch (ValidationException $exception) {
+            View::render('User/register', [
+                'title' => 'Register new User',
+                'error' => $exception->getMessage()
+            ]);
+        }
+    }
     public function login()
     {
         View::render('User/login', [
-            "title" => "Login user"
+            "title" => "Login admin"
         ]);
     }
-
     public function postLogin()
     {
         $request = new UserLoginRequest();
@@ -68,8 +89,12 @@ class UserController
 
         try {
             $response = $this->userService->login($request);
+
+            if ($response->user->role !== 'admin') {
+                throw new ValidationException('Anda tidak memiliki izin untuk mengakses halaman ini.');
+            }
             $this->sessionService->create($response->user->id);
-            View::redirect('/');
+            View::redirect('/admin/beranda');
         } catch (ValidationException $exception) {
             View::render('User/login', [
                 'title' => 'Login user',
@@ -77,11 +102,44 @@ class UserController
             ]);
         }
     }
+    public function loginUser()
+    {
+        View::render('User/loginUser', [
+            "title" => "Login user"
+        ]);
+    }
+    public function postLoginUser()
+    {
+        $request = new UserLoginRequest();
+        $request->username = $_POST['username'];
+        $request->password = $_POST['password'];
 
+        try {
+            $response = $this->userService->login($request);
+            $this->sessionService->create($response->user->id);
+
+            if ($response->user->role != 'user') {
+                throw new ValidationException('Anda tidak memiliki izin untuk mengakses halaman ini.');
+            }
+
+            View::redirect('/menu');
+        } catch (ValidationException $exception) {
+            View::render('User/loginUser', [
+                'title' => 'Login user',
+                'error' => $exception->getMessage()
+            ]);
+        }
+    }
     public function logout()
     {
-        $this->sessionService->destroy();
-        View::redirect("/");
+        $user = $this->sessionService->current();
+        if ($user->role == 'admin') {
+            $this->sessionService->destroy();
+            View::redirect("/admin/login");
+        } else {
+            $this->sessionService->destroy();
+            View::redirect("/login");
+        }
     }
 
     public function updateProfile()
