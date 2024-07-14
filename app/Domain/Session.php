@@ -5,5 +5,5 @@ namespace Bobakuy\Domain;
 class Session
 {
     public string $id;
-    public string $userId;
+    public int $userId;
 }

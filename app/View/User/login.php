@@ -8,20 +8,22 @@
         </div>
     <?php } ?>
 
-    <div class="row align-items-center g-lg-5 py-5">
-
-        <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="/users/login">
-                <div class="form-floating mb-3">
-                    <input name="username" type="text" class="form-control" id="username" placeholder="usernmae" value="<?= $_POST['username'] ?? '' ?>">
-                    <label for="username">Username</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input name="password" type="password" class="form-control" id="password" placeholder="password">
-                    <label for="password">Password</label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Masuk sebagai admin</button>
-            </form>
+    <div class="w-screen h-screen flex justify-center items-center">
+        <div class="border border-blue-600 p-4 rounded-md">
+            <div>
+                <form class="space-y-4" method="post" action="/admin/login">
+                    <p class="text-xl font-semibold">Masuk sebagai admin</p>
+                    <div class="flex w-full max-w-xs flex-col gap-1 text-slate-700 dark:text-slate-300">
+                        <label for="textInputDefault" class="w-fit pl-0.5 text-sm">Username</label>
+                        <input id="textInputDefault" type="text" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="username" type="text" id="username" placeholder="username" value="<?= $_POST['username'] ?? '' ?>" />
+                    </div>
+                    <div class="flex w-full max-w-xs flex-col gap-1 text-slate-700 dark:text-slate-300">
+                        <label for="textInputDefault" class="w-fit pl-0.5 text-sm">Password</label>
+                        <input id="textInputDefault" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="password" type="password" id="password" placeholder="password" value="<?= $_POST['password'] ?? '' ?>" />
+                    </div>
+                    <button class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600" type="submit">Masuk</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

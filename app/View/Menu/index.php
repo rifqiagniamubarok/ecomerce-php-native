@@ -26,14 +26,19 @@
         <li class="py-4"><a href="/logout" class="w-full text-lg font-medium text-red-600 focus:underline dark:text-slate-300">Logout</a></li>
     </ul>
 </nav>
-<div class="container mx-auto mt-4 space-y-4">
-    <div>
-        <a href="/menu/create">
-            <button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">
-                Create new menu
-            </button>
-        </a>
-    </div>
+<div class="container mx-auto mt-4">
+    <!-- <a href="/beranda">
+        <button type="button" class="cursor-pointer whitespace-nowrap bg-transparent rounded-xl border border-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-blue-700 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-blue-600 dark:text-blue-600 dark:focus-visible:outline-blue-600">
+            Back
+        </button>
+    </a> -->
+    <a href="/menu/baru">
+        <button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">
+            Create new menu
+        </button>
+    </a>
+</div>
+<div class="container mx-auto mt-4">
     <div class="grid grid-cols-5 gap-2">
         <article class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
             <div class="h-44 md:h-64 overflow-hidden">

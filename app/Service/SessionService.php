@@ -21,7 +21,7 @@ class SessionService
         $this->userRepository = $userRepository;
     }
 
-    public function create(string $userId): Session
+    public function create(int $userId): Session
     {
         $session = new Session();
         $session->id = uniqid();

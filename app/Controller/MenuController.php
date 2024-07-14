@@ -8,7 +8,7 @@ use Bobakuy\Repository\SessionRepository;
 use Bobakuy\Repository\UserRepository;
 use Bobakuy\Service\SessionService;
 
-class HomeController
+class MenuController
 {
 
     private SessionService $sessionService;
@@ -24,21 +24,17 @@ class HomeController
 
     function index()
     {
-        $user = $this->sessionService->current();
-        if ($user == null) {
-            View::render('Home/index', [
-                "title" => "Home"
-            ]);
-        } else {
-            View::render('Home/dashboard', [
-                "title" => "Dashboard",
-                "user" => [
-                    "name" => $user->username
-                ]
-            ]);
-        }
+        View::render('Menu/index', [
+            "title" => "Home"
+        ]);
     }
-    function create()
+    function buat()
+    {
+        View::render('Menu/create', [
+            "title" => "Create menu "
+        ]);
+    }
+    function postBuat()
     {
         View::render('Menu/create', [
             "title" => "Create menu "

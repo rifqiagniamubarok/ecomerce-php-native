@@ -23,7 +23,7 @@ class MustNotLoginMiddleware implements Middleware
     {
         $user = $this->sessionService->current();
         if ($user != null) {
-            View::redirect('/');
+            View::redirect('/beranda');
         }
     }
 }

@@ -71,7 +71,7 @@ class UserService
 
         $user = $this->userRepository->findByUsername($request->username);
         if ($user == null) {
-            throw new ValidationException("Id or password is wrong");
+            throw new ValidationException("Username or password is wrong");
         }
 
         if (password_verify($request->password, $user->password)) {
@@ -89,7 +89,7 @@ class UserService
             $request->username == null || $request->password == null ||
             trim($request->username) == "" || trim($request->password) == ""
         ) {
-            throw new ValidationException("Id, Password can not blank");
+            throw new ValidationException("Username, Password can not blank");
         }
     }
 
