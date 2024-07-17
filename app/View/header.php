@@ -9,3 +9,5 @@
 </head>
 
 <body>
+      <div class="flex flex-col">
+            <div class="min-h-screen">

@@ -88,6 +88,8 @@ class MenuRepository
         }
     }
 
+
+
     public function deleteAll(): void
     {
         $this->connection->exec("DELETE from menu");

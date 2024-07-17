@@ -24,21 +24,37 @@ CREATE TABLE menu(
     harga INT
 ) ENGINE InnoDB;
 
-CREATE TABLE keranjang(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nama_pembeli VARCHAR(255),
-    email VARCHAR(255),
-    total INT,
-    dibayar ENUM('sudah', 'menunggu_pembayaran', 'belum')
-) ENGINE InnoDB;
-
-CREATE TABLE keranjang_item(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    keranjang_id INT,
-    menu_id INT,
-    qty INT,
-    harga INT,
-    total_harga INT,
-    FOREIGN KEY (keranjang_id) REFERENCES keranjang(id),
+CREATE TABLE keranjang_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    menu_id INT NOT NULL,
+    nama_menu VARCHAR(255) NOT NULL,
+    jumlah INT NOT NULL,
+    harga INT NOT NULL,
+    total_harga INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (menu_id) REFERENCES menu(id)
-) ENGINE InnoDB;
+) ENGINE=InnoDB;
+
+CREATE TABLE transaksi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    total_jumlah INT NOT NULL,
+    total_harga INT NOT NULL,
+    status ENUM('menunggu_pembayaran', 'dibayar', 'dibatalkan') NOT NULL DEFAULT 'menunggu_pembayaran',
+    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB;
+
+CREATE TABLE transaksi_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    transaksi_id INT NOT NULL,
+    nama_menu VARCHAR(255) NOT NULL,
+    harga INT NOT NULL,
+    total_harga INT NOT NULL,
+    jumlah INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (transaksi_id) REFERENCES transaksi(id)
+) ENGINE=InnoDB;
+

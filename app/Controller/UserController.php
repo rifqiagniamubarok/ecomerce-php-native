@@ -89,7 +89,6 @@ class UserController
 
         try {
             $response = $this->userService->login($request);
-
             if ($response->user->role !== 'admin') {
                 throw new ValidationException('Anda tidak memiliki izin untuk mengakses halaman ini.');
             }
@@ -116,11 +115,10 @@ class UserController
 
         try {
             $response = $this->userService->login($request);
-            $this->sessionService->create($response->user->id);
-
             if ($response->user->role != 'user') {
                 throw new ValidationException('Anda tidak memiliki izin untuk mengakses halaman ini.');
             }
+            $this->sessionService->create($response->user->id);
 
             View::redirect('/menu');
         } catch (ValidationException $exception) {

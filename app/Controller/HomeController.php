@@ -20,8 +20,6 @@ class HomeController
         $userRepository = new UserRepository($connection);
         $this->sessionService = new SessionService($sessionRepository, $userRepository);
     }
-
-
     function index()
     {
         $user = $this->sessionService->current();

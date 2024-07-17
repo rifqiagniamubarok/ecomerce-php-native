@@ -52,14 +52,14 @@
             </div>
         </div>
     <?php } ?>
-    <form class="space-y-2" method="post" action="/admin/menu/buat" enctype="multipart/form-data">
+    <form class="space-y-2" method="post" action="/admin/menu/edit/<?= $model['menu']['id'] ?>" enctype="multipart/form-data">
         <div class="flex w-full max-w-xs flex-col gap-1 text-slate-700 dark:text-slate-300">
             <label for="nama" class="w-fit pl-0.5 text-sm">Nama</label>
-            <input id="nama" type="text" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="nama" placeholder="Masukan nama" autocomplete="nama" value="<?= $_POST['nama'] ?? '' ?>" />
+            <input id="nama" type="text" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="nama" placeholder="Masukan nama" autocomplete="nama" value="<?= $model['menu']['nama'] ?>" />
         </div>
         <div class="flex w-full max-w-xs flex-col gap-1 text-slate-700 dark:text-slate-300">
             <label for="harga" class="w-fit pl-0.5 text-sm">Harga</label>
-            <input id="harga" type="number" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="harga" placeholder="Masukan harga" autocomplete="harga" value="<?= $_POST['harga'] ?? '' ?>" />
+            <input id="harga" type="number" class="w-full rounded-xl border border-slate-300 bg-slate-100 px-2 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-75 dark:border-slate-700 dark:bg-slate-800/50 dark:focus-visible:outline-blue-600" name="harga" placeholder="Masukan harga" autocomplete="harga" value="<?= $model['menu']['harga'] ?>" />
         </div>
         <div class="relative flex w-full max-w-sm flex-col gap-1 text-slate-700 dark:text-slate-300">
             <label for="fileInput" class="w-fit pl-0.5 text-sm">Upload File</label>
@@ -67,6 +67,6 @@
 
             <small class="pl-0.5">PNG, JPG, WebP - Max 5MB</small>
         </div>
-        <button class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600" type="submit">Buat menu</button>
+        <button class="cursor-pointer whitespace-nowrap rounded-xl bg-blue-700 px-4 py-2 text-sm font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600" type="submit">Simpan perubahan</button>
     </form>
 </div>

@@ -31,6 +31,19 @@ class MenuService
             throw $exception;
         }
     }
+    public function temukanMenu($id)
+    {
+        Database::beginTransaction();
+        try {
+            $response = $this->menuRepository->findById($id);
+
+            Database::commitTransaction();
+            return $response;
+        } catch (\Exception $exception) {
+            Database::rollbackTransaction();
+            throw $exception;
+        }
+    }
 
     public function buatMenu(BuatMenuRequest $request): BuatMenuResponse
     {
