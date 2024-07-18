@@ -41,7 +41,12 @@
                 <?php if (is_array($menu)) : ?>
                     <article class="group flex rounded-xl max-w-sm flex-col overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                         <div class="w-full aspect-square overflow-hidden">
-                            <img src="<?= htmlspecialchars($menu['gambar']) ?>" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="<?= htmlspecialchars($menu['nama']) ?>" />
+                            <?php
+                            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+                            $host = $_SERVER['HTTP_HOST'];
+                            $baseUrl = $scheme . '://' . $host;
+                            ?>
+                            <img src="<?= $baseUrl . htmlspecialchars($menu['gambar']) ?>" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="<?= htmlspecialchars($menu['nama']) ?>" />
                         </div>
                         <div class="p-2 md:p-4">
                             <h3 class="text-balance text-sm md:text-2xl font-bold text-black dark:text-white" aria-describedby="tripDescription"><?= htmlspecialchars($menu['nama']) ?></h3>

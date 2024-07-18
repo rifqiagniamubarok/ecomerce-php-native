@@ -31,9 +31,12 @@
 </nav>
 <div class="md:container md:mx-auto mt-4 p-2 pb-10">
     <article class="group rounded-xl  border border-slate-300 bg-slate-100 md:p-4 p-2 space-y-2">
-        <p class="text-xs md:text-base">
-            <?= $model['transaksi']["date"] ?>
-        </p>
+        <div class="text-xs md:text-base md:flex items-center justify-between">
+            <p>Alamat : <?= $model['transaksi']["alamat"] ?></p>
+            <p>
+                <?= $model['transaksi']["date"] ?>
+            </p>
+        </div>
         <?php if ($model['transaksi']["status"] === 'menunggu_pembayaran') : ?>
             <div class="p-2 md:p-4 text-sm md:text-xl bg-gray-200 text-center">Menunggu Pembayaran</div>
         <?php elseif ($model['transaksi']["status"] === 'diproses') : ?>
@@ -52,7 +55,7 @@
                 <p class="text-xs md:text-lg text-center mt-4">Selamat menikmati minumannya</p>
             </div>
         <?php elseif ($model['transaksi']["status"] === 'dibatalkan') : ?>
-            <div class="p-2 md:p-4 text-sm md:text-xl bg-red-600 text-white">Dibatalkan</div>
+            <div class="p-2 md:p-4 text-sm md:text-xl bg-red-600 text-white text-center">Dibatalkan</div>
         <?php endif; ?>
         <p class="text-sm md:text-base"><?= $model['transaksi']["total_jumlah"] ?> item</p>
         <div class="p-4 rounded-md border border-blue-600 space-y-2">

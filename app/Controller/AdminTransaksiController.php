@@ -30,7 +30,7 @@ class AdminTransaksiController
     function index()
     {
         $statement = $this->connection->prepare("
-        SELECT transaksi.*, users.username 
+        SELECT transaksi.*, users.username, users.alamat 
         FROM transaksi 
         JOIN users ON transaksi.user_id = users.id
         ORDER BY transaksi.date DESC
@@ -46,7 +46,7 @@ class AdminTransaksiController
     function transaksiDetail($id)
     {
 
-        $statement = $this->connection->prepare("SELECT transaksi.*, users.username FROM transaksi JOIN users ON transaksi.user_id = users.id WHERE transaksi.id = ?");
+        $statement = $this->connection->prepare("SELECT transaksi.*, users.username, users.alamat FROM transaksi JOIN users ON transaksi.user_id = users.id WHERE transaksi.id = ?");
         $statement->execute([$id]);
 
         $transaksi = $statement->fetch(PDO::FETCH_ASSOC);

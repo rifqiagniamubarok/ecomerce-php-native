@@ -35,11 +35,12 @@ class UserService
                 throw new ValidationException("username telah digunakan");
             }
 
-
             $user = new User();
             $user->username = $request->username;
             $user->password = password_hash($request->password, PASSWORD_BCRYPT);
             $user->role = $request->role;
+            $user->alamat = $request->alamat;
+
             $this->userRepository->save($user);
 
             $response = new UserRegisterResponse();
@@ -60,7 +61,9 @@ class UserService
         if (
             $request->username == null || $request->password == null || trim($request->username) == "" || trim($request->password) == ""
         ) {
-            throw new ValidationException("Id, Name, Password can not blank");
+            throw new ValidationException(" Nama, Password tidak boleh kosong");
+        } elseif ($request->role == 'user' && $request->alamat == null) {
+            throw new ValidationException(" Name, Password dan alamt tidak boleh kosong");
         }
     }
 

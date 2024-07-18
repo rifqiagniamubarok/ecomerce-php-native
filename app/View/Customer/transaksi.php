@@ -37,7 +37,10 @@
                     <article class="group rounded-xl  border border-slate-300 bg-slate-100 ">
                         <!-- body -->
                         <div class=" justify-center p-2 md:p-6 gap-1">
-                            <p class="text-xs md:text-base font-medium text-end"><?= $item['date'] ?></p>
+                            <div class="text-xs md:text-base font-medium flex items-center justify-between ">
+                                <p>alamat :<?= $item['alamat'] ?></p>
+                                <p><?= $item['date'] ?></p>
+                            </div>
                             <div class="grid grid-cols-2 md:grid-cols-3 items-center">
                                 <div class=" flex gap-2 items-center">
                                     <p class="hidden md:flex">Status</p>

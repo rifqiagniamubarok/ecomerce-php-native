@@ -32,6 +32,9 @@
             <p class="text-xs md:text-base font-medium">Pembeli: <?= $model['transaksi']['username'] ?></p>
             <p class="text-xs md:text-base font-medium"><?= $model['transaksi']['date'] ?></p>
         </div>
+        <div class="text-xs md:text-base">
+            <p>Alamat : <?= $model['transaksi']["alamat"] ?></p>
+        </div>
         <?php if ($model['transaksi']["status"] === 'menunggu_pembayaran') : ?>
             <div class="p-2 md:p-4 text-sm md:text-xl bg-gray-200">Menunggu Pembayaran</div>
         <?php elseif ($model['transaksi']["status"] === 'diproses') : ?>

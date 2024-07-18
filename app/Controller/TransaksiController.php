@@ -30,7 +30,14 @@ class TransaksiController
     function index()
     {
         $user = $this->sessionService->current();
-        $statement = $this->connection->prepare("SELECT * FROM transaksi WHERE transaksi.user_id = ? ORDER BY transaksi.date DESC");
+        $statement = $this->connection->prepare("
+    SELECT transaksi.*, users.username, users.alamat as alamat
+    FROM transaksi 
+    JOIN users ON transaksi.user_id = users.id
+    WHERE transaksi.user_id = ?
+    ORDER BY transaksi.date DESC
+        ");
+
         $statement->execute([$user->id]);
         $transaksi = $statement->fetchAll();
 
@@ -42,7 +49,11 @@ class TransaksiController
     function transaksiDetail($id)
     {
 
-        $statement = $this->connection->prepare("SELECT * FROM transaksi WHERE id = ?");
+        $statement = $this->connection->prepare("
+    SELECT transaksi.*, users.username, users.alamat as alamat
+    FROM transaksi 
+    JOIN users ON transaksi.user_id = users.id 
+    WHERE transaksi.id = ?");
         $statement->execute([$id]);
 
         $transaksi = $statement->fetch(PDO::FETCH_ASSOC);

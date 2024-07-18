@@ -74,7 +74,7 @@ class MenuController
                 $dest_path = $uploadFileDir . $fileNameNew;
 
                 if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                    $request->gambar = 'http://localhost:8080/images/' . $fileNameNew; // Gunakan nama file baru dengan timestamp
+                    $request->gambar = '/images/' . $fileNameNew; // Gunakan nama file baru dengan timestamp
                 } else {
                     throw new Error('Ada masalah dalam upload file, silahkan ulangin');
                 }
@@ -143,7 +143,7 @@ class MenuController
                 $dest_path = $uploadFileDir . $fileNameNew;
 
                 if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                    $request->gambar = 'http://localhost:8080/images/' . $fileNameNew; // Gunakan nama file baru dengan timestamp
+                    $request->gambar = '/images/' . $fileNameNew; // Gunakan nama file baru dengan timestamp
                 } else {
                     throw new Error('Ada masalah dalam upload file, silahkan ulangin');
                 }

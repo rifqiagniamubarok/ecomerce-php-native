@@ -64,6 +64,7 @@ class UserController
         $request->username = $_POST['username'];
         $request->password = $_POST['password'];
         $request->role = 'user';
+        $request->alamat = $_POST['alamat'];
 
         try {
             $this->userService->register($request);
