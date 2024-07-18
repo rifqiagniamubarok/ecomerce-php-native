@@ -1,7 +1,7 @@
-<nav x-data="{ mobileMenuIsOpen: false }" @click.away="mobileMenuIsOpen = false" class="flex items-center justify-between px-6 py-4" aria-label="penguin ui menu">
+<nav x-data="{ mobileMenuIsOpen: false }" @click.away="mobileMenuIsOpen = false" class="dark bg-black flex items-center justify-between px-6 py-4" aria-label="penguin ui menu">
     <!-- Brand Logo -->
     <a href="#footer" class="text-2xl font-bold text-black dark:text-white">
-        <span>Boba<span class="text-blue-700 dark:text-blue-600">ku</span>y</span>
+        <span>Bobakuy</span>
     </a>
     <!-- Desktop Menu -->
     <ul class="hidden items-center gap-4 sm:flex">

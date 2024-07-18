@@ -4,7 +4,7 @@
             <div class="w-full">
                 <form class="space-y-1 md:space-y-4 w-full" method="post" action="/login">
                     <p class="text-sm md:text-xl font-semibold text-center">
-                        <span>Boba<span class="text-blue-700 dark:text-blue-600">ku</span>y</span>
+                        <span>Bobakuy</span>
                     </p>
                     <p class="text-sm md:text-xl font-semibold text-center">
                         Masuk
