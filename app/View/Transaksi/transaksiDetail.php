@@ -6,8 +6,8 @@
     </a>
     <!-- Desktop Menu -->
     <ul class="hidden items-center gap-4 md:flex">
-        <li><a href="/admin/beranda" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-700 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-600">Beranda</a></li>
-        <li><a href="/admin/transaksi" class="font-bold text-blue-700 underline-offset-2 hover:text-blue-700 focus:outline-none focus:underline dark:text-blue-600 dark:hover:text-blue-600" aria-current="page">Transaksi</a></li>
+        <li><a href="/admin/beranda" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-500 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-500">Beranda</a></li>
+        <li><a href="/admin/transaksi" class="font-bold text-blue-500 underline-offset-2 hover:text-blue-500 focus:outline-none focus:underline dark:text-blue-500 dark:hover:text-blue-500" aria-current="page">Transaksi</a></li>
         <li><a href="/logout" class="font-medium text-red-600 underline-offset-2 hover:text-red-500 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-red-600">Logout</a></li>
     </ul>
     <!-- Mobile Menu Button -->
@@ -22,7 +22,7 @@
     <!-- Mobile Menu -->
     <ul x-cloak x-show="mobileMenuIsOpen" x-transition:enter="transition motion-reduce:transition-none ease-out duration-300" x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition motion-reduce:transition-none ease-out duration-300" x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full" id="mobileMenu" class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-10 flex flex-col divide-y divide-slate-300 rounded-b-xl border-b border-slate-300 bg-slate-100 px-6 pb-6 pt-20 dark:divide-slate-700 dark:border-slate-700 dark:bg-slate-800 md:hidden">
         <li class="py-4"><a href="/admin/beranda" class="w-full text-lg font-medium text-slate-700 focus:underline dark:text-slate-300">Beranda</a></li>
-        <li class="py-4"><a href="/admin/transaksi" class="w-full text-lg font-bold text-blue-700 focus:underline dark:text-blue-600" aria-current="page">Transaksi</a></li>
+        <li class="py-4"><a href="/admin/transaksi" class="w-full text-lg font-bold text-blue-500 focus:underline dark:text-blue-500" aria-current="page">Transaksi</a></li>
         <li class="py-4"><a href="/logout" class="w-full text-lg font-medium text-red-600 focus:underline dark:text-slate-300">Logout</a></li>
     </ul>
 </nav>
@@ -59,7 +59,7 @@
             <?php endforeach; ?>
         </div>
         <p class="text-sm md:text-base">Total harga :</p>
-        <p class="text-base md:text-xl text-blue-600">Rp. <?= $model['transaksi']["total_harga"] ?></p>
+        <p class="text-base md:text-xl text-blue-500">Rp. <?= $model['transaksi']["total_harga"] ?></p>
         <?php if ($model['transaksi']["status"] === 'diproses') : ?>
             <form method="post" action="/admin/transaksiDiantar/<?= $model['transaksi']['id'] ?>">
                 <button type="submit" class="cursor-pointer whitespace-nowrap rounded-md bg-sky-600 px-2 md:px-4 py-1 md:py-2 text-sm md:text-xl w-full font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">Antar pesanan</button>

@@ -5,9 +5,9 @@
     </a>
     <!-- Desktop Menu -->
     <ul class="hidden items-center gap-4 sm:flex">
-        <li><a href="/menu" class="font-bold text-blue-700 underline-offset-2 hover:text-blue-700 focus:outline-none focus:underline dark:text-blue-600 dark:hover:text-blue-600" aria-current="page">Menu</a></li>
-        <li><a href="/keranjang" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-700 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-600">Keranjang</a></li>
-        <li><a href="/transaksi" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-700 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-600">Transaksi</a></li>
+        <li><a href="/menu" class="font-bold text-blue-500 underline-offset-2 hover:text-blue-500 focus:outline-none focus:underline dark:text-blue-500 dark:hover:text-blue-500" aria-current="page">Menu</a></li>
+        <li><a href="/keranjang" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-500 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-500">Keranjang</a></li>
+        <li><a href="/transaksi" class="font-medium text-slate-700 underline-offset-2 hover:text-blue-500 focus:outline-none focus:underline dark:text-slate-300 dark:hover:text-blue-500">Transaksi</a></li>
         <!-- CTA Button -->
         <li><a href="/logout" class="rounded-xl bg-red-700 px-4 py-2 text-center text-sm font-medium tracking-wide text-slate-100 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:opacity-100 active:outline-offset-0 dark:bg-blue-600 dark:text-slate-100 dark:focus-visible:outline-blue-600">Logout</a></li>
     </ul>
@@ -22,7 +22,7 @@
     </button>
     <!-- Mobile Menu -->
     <ul x-cloak x-show="mobileMenuIsOpen" x-transition:enter="transition motion-reduce:transition-none ease-out duration-300" x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition motion-reduce:transition-none ease-out duration-300" x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full" id="mobileMenu" class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-10 flex flex-col divide-y divide-slate-300 rounded-b-xl border-b border-slate-300 bg-slate-100 px-6 pb-6 pt-20 dark:divide-slate-700 dark:border-slate-700 dark:bg-slate-800 sm:hidden">
-        <li class="py-4"><a href="/menu" class="w-full text-lg font-bold text-blue-700 focus:underline dark:text-blue-600" aria-current="page">Menu</a></li>
+        <li class="py-4"><a href="/menu" class="w-full text-lg font-bold text-blue-500 focus:underline dark:text-blue-500" aria-current="page">Menu</a></li>
         <li class="py-4"><a href="/keranjang" class="w-full text-lg font-medium text-slate-700 focus:underline dark:text-slate-300">Keranjang</a></li>
         <li class="py-4"><a href="/transaksi" class="w-full text-lg font-medium text-slate-700 focus:underline dark:text-slate-300">Transaksi</a></li>
         <!-- CTA Button -->

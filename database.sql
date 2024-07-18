@@ -1,4 +1,6 @@
-CREATE DATABASE php_login_management;
+CREATE DATABASE bobakuy_db;
+
+USE bobakuy_db;
 
 CREATE TABLE users(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -42,7 +44,7 @@ CREATE TABLE transaksi (
     user_id INT NOT NULL,
     total_jumlah INT NOT NULL,
     total_harga INT NOT NULL,
-    status ENUM('menunggu_pembayaran', 'dibayar', 'dibatalkan') NOT NULL DEFAULT 'menunggu_pembayaran',
+    status ENUM('menunggu_pembayaran','dibatalkan','diproses','diantar','diterima') NOT NULL DEFAULT 'menunggu_pembayaran',
     date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB;

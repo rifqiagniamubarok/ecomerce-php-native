@@ -29,6 +29,7 @@ class KeranjangController
 
     function index()
     {
+        $user = $this->sessionService->current();
         $statement = $this->connection->prepare("
         SELECT 
             keranjang_item.*, 
@@ -41,9 +42,11 @@ class KeranjangController
             menu 
         ON 
             keranjang_item.menu_id = menu.id
+        WHERE keranjang_item.user_id = ?
+    
     ");
 
-        $statement->execute();
+        $statement->execute([$user->id]);
         $keranjangs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         View::render('Customer/keranjang', [

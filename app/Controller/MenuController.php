@@ -174,13 +174,11 @@ class MenuController
             $this->connection->beginTransaction();
 
             // Hapus semua item transaksi yang terkait dengan menu
-            $statement1 = $this->connection->prepare("DELETE FROM transaksi_item WHERE menu_id = ?");
+            $statement1 = $this->connection->prepare("DELETE FROM menu WHERE id = ?");
             $statement1->execute([$id]);
 
-            // Hapus menu
-            $statement2 = $this->connection->prepare("DELETE FROM menu WHERE id = ?");
+            $statement2 = $this->connection->prepare("DELETE FROM keranjang_item WHERE menu_id = ?");
             $statement2->execute([$id]);
-
             // Commit transaksi
             $this->connection->commit();
 
