@@ -2,30 +2,26 @@ CREATE DATABASE bobakuy_db;
 
 USE bobakuy_db;
 
-CREATE TABLE users(
+CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL ,
+    username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     alamat VARCHAR(255),
     role ENUM('admin', 'user') NOT NULL DEFAULT 'admin'
-) ENGINE InnoDB;
+);
 
-CREATE TABLE sessions(
-    id VARCHAR(255) PRIMARY KEY ,
-    user_id INT NOT NULL
-)ENGINE InnoDB;
+CREATE TABLE sessions (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
-ALTER TABLE sessions
-ADD CONSTRAINT fk_sessions_user
-    FOREIGN KEY (user_id)
-        REFERENCES users(id);
-
-CREATE TABLE menu(
+CREATE TABLE menu (
     id INT PRIMARY KEY AUTO_INCREMENT,
     gambar VARCHAR(255),
     nama VARCHAR(255),
     harga INT
-) ENGINE InnoDB;
+);
 
 CREATE TABLE keranjang_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,7 +33,7 @@ CREATE TABLE keranjang_item (
     total_harga INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (menu_id) REFERENCES menu(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE transaksi (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,7 +43,7 @@ CREATE TABLE transaksi (
     status ENUM('menunggu_pembayaran','dibatalkan','diproses','diantar','diterima') NOT NULL DEFAULT 'menunggu_pembayaran',
     date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE transaksi_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -59,5 +55,4 @@ CREATE TABLE transaksi_item (
     jumlah INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (transaksi_id) REFERENCES transaksi(id)
-) ENGINE=InnoDB;
-
+);
